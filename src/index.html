@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <title>IMC Calculator</title>
+</head>
+
+<body>
+  <div id="particles-js"></div>
+  <div class="container-form">
+    <h1>IMC Calculator</h1>
+    <form id="imcForm">
+      <label for="weight">Weight (kg):</label>
+      <input type="text" id="weight" name="Weight" min="0" required>
+      <br>
+      <label for="height">Height (m):</label>
+      <input type="text" id="height" name="Height" step="0.01" min="0" required>
+      <br>
+      <button type="button" onclick="calculateIMCValue()">Calculate IMC!</button>
+    </form>
+    <div class="container-info">
+      <p>Find out now if you are at your ideal weight!</p>
+    </div>
+    <div class="imc-table">
+      <table>
+        <thead>
+          <tr>
+            <th>IMC</th>
+            <th>Classification</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Less than 17</td>
+            <td>Very underweight</td>
+          </tr>
+          <tr>
+            <td>Between 17 and 18.49</td>
+            <td>Underweight</td>
+          </tr>
+          <tr>
+            <td>Between 18.5 and 24.99</td>
+            <td>Normal weight</td>
+          </tr>
+          <tr>
+            <td>Between 25 and 29.99</td>
+            <td>Overweight</td>
+          </tr>
+          <tr>
+            <td>Between 30 and 34.99</td>
+            <td>Obesity I</td>
+          </tr>
+          <tr>
+            <td>Between 35 and 39.99</td>
+            <td>Obesity II (severe)</td>
+          </tr>
+          <tr>
+            <td>Above 40</td>
+            <td>Obesity III (morbid)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script src="./particles.js" defer></script>
+    <script src="./script.js" defer></script>
+  </div>
+</body>
+<script src="
+https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js
+"></script>
+
+</html>

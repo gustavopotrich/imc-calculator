@@ -1,0 +1,227 @@
+:root {
+  --background-color: #f4f4f4;
+  --placeholder-input: #ababab;
+  --disabled-input: rgba(232, 91, 129, 0.5);
+  --primary-text: #505050;
+  --secondary-text: #ababab;
+  --button-text: #ffffff;
+  --button-background: #e85b81;
+  --border-button: #e85b81;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: var(--background-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  font-family: "Roboto", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.container-form {
+  position: relative;
+  z-index: 1;
+  width: 35%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid var(--button-background);
+  background-color: var(--background-color);
+  border-radius: 5px;
+  filter: drop-shadow(0px 0px 5px var(--disabled-input));
+  padding: 1.2rem 3rem;
+  gap: 1.2rem;
+  height: auto;
+}
+
+.container-form h1 {
+  font-size: 30px;
+  color: var(--primary-text);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.2rem;
+  color: var(--primary-text);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+input {
+  border: 1px solid var(--border-button);
+  border-radius: 4px;
+  color: var(--primary-text);
+  font-size: 14px;
+  padding: 13px 25px;
+  font-weight: 400;
+  transition: border-color 0.3s ease-out, outline-color 0.3s ease-out;
+}
+
+input:focus {
+  border-color: var(--button-background);
+  outline: 1.5px solid var(--button-background);
+}
+
+button {
+  background-color: var(--button-background);
+  color: var(--button-text);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 16px 0;
+  font-size: 14px;
+  font-weight: 700;
+  transition: background-color 0.3s ease-out;
+}
+
+button:focus {
+  background-color: var(--button-background);
+  outline: 1.5px solid var(--button-background);
+}
+
+button:hover {
+  background-color: #d74a6e;
+}
+
+.container-info {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--secondary-text);
+  width: 100%;
+  text-align: center;
+}
+
+.container-info p.result {
+  color: #802a41;
+}
+
+.imc-table {
+  width: 100%;
+  background-color: var(--background-color);
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  cursor: pointer;
+  color: var(--primary-text);
+}
+
+.imc-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.imc-table th,
+.imc-table td {
+  padding: 0.5rem 0.4rem;
+  text-align: left;
+}
+
+.imc-table th {
+  background-color: #e85b81;
+  color: white;
+}
+
+.imc-table tr:nth-child(even) {
+  background-color: var(--background-color);
+}
+
+.imc-table tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.imc-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* ========== PARTICLES JS ========== */
+
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* ========== MEDIA QUERIES  ========== */
+/* Styles for screens 1024px wide or less */
+@media (max-width: 1100px) {
+  /* Styles for screens 1100px wide or less */
+
+  .container-form {
+    width: 80%; /* Adjust the width for smaller screens */
+    padding: 1rem; /* Adjust padding for better fit */
+  }
+
+  .container-form h1 {
+    font-size: 26px; /* Adjust font size for headings */
+  }
+
+  input {
+    padding: 12px 20px; /* Adjust input padding */
+    font-size: 13px; /* Adjust input font size */
+  }
+
+  button {
+    padding: 14px 0; /* Adjust button padding */
+    font-size: 13px; /* Adjust button font size */
+  }
+
+  .imc-table th,
+  .imc-table td {
+    padding: 0.4rem 1rem; /* Adjust table cell padding */
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .container-form {
+    width: 95%;
+    padding: 1rem;
+  }
+
+  .container-form h1 {
+    font-size: 24px;
+  }
+
+  input {
+    padding: 10px 15px;
+    font-size: 12px;
+  }
+
+  button {
+    padding: 12px 0;
+    font-size: 12px;
+  }
+
+  .imc-table th,
+  .imc-table td {
+    padding: 0.4rem 0.5rem;
+    font-size: 14px;
+  }
+}
