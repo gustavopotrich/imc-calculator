@@ -28,20 +28,34 @@ function calculateIMCValue(weight, height) {
 
 // Function to handle DOM interactions
 function displayIMCResult() {
-  // Get the input values and replace commas with periods
-  let weightInput = document.getElementById("weight").value.replace(",", ".");
-  let heightInput = document.getElementById("height").value.replace(",", ".");
+  const weightInput = document.getElementById("weight");
+  const heightInput = document.getElementById("height");
+  const button = document.querySelector("button");
+  const infoContainer = document.querySelector(".container-info");
 
-  // Parse the normalized input values as floats
-  const weight = parseFloat(weightInput);
-  const height = parseFloat(heightInput);
+  console.log("Button text before click:", button.textContent);
+
+  // Check if we are in "calculate another" mode
+  if (button.textContent === "Calculate another!") {
+    console.log("Resetting form...");
+    // Reset the form and button text
+    weightInput.value = "";
+    heightInput.value = "";
+    infoContainer.innerHTML =
+      "<p>Find out now if you are at your ideal weight!</p>";
+    button.textContent = "Calculate IMC!";
+    return;
+  }
+
+  // Parse the input values
+  const weight = parseFloat(weightInput.value.replace(",", "."));
+  const height = parseFloat(heightInput.value.replace(",", "."));
 
   try {
     // Calculate IMC and get classification
     const { imc, classification } = calculateIMCValue(weight, height);
 
-    // Create the result table
-    const infoContainer = document.querySelector(".container-info");
+    // Display the result
     infoContainer.innerHTML = `
       <div class="imc-table">
         <table>
@@ -65,6 +79,10 @@ function displayIMCResult() {
       </div>
     `;
     infoContainer.classList.add("result");
+
+    // Change button text to "Calculate another!"
+    button.textContent = "Calculate another!";
+    console.log("Button text changed to:", button.textContent);
   } catch (error) {
     alert(error.message);
   }
